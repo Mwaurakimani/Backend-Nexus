@@ -1,27 +1,19 @@
 <?php
+$to = "kimmwaus@gmail.com";
+$subject = "Test email";
+$message = "This is a test email.";
 
-$hostname = '149.100.151.103';
-$username = 'u527865105_sch_test';
-$password = 'Pixpix2675!';
-$database = 'u527865105_sch_test';
+// Additional headers
+$headers = "From: info@nexusgamming.co.ke.com\r\n";
+$headers .= "Reply-To: info@nexusgamming.com\r\n";
 
-//DB_CONNECTION=mysql
-//DB_HOST=149.100.151.103
-//DB_PORT=3306
-//DB_DATABASE=u527865105_sch_test
-//DB_USERNAME=u527865105_sch_test
-//DB_PASSWORD=Pixpix2675!
+// Mail function
+$mail_success = mail($to, $subject, $message, $headers);
 
-try {
-    // Establish a connection to the database
-    $pdo = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
-
-    // Set the PDO error mode to exception
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    echo "Connected successfully";
-} catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+if ($mail_success) {
+    echo "Email sent successfully.";
+} else {
+    echo "Error sending email.";
 }
 
 die("hellow");
