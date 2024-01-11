@@ -1,7 +1,7 @@
 import os
 
 # Set the desired environment
-desired_environment = "local"  # You can modify this based on your needs
+desired_environment = "production"  # You can modify this based on your needs
 
 # Set the environment variable for Laravel
 os.environ['APP_ENV_ALIAS'] = desired_environment
